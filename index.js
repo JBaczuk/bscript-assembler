@@ -1,6 +1,6 @@
 const deprecate = require('depd')('bscript-assembler')
 
-const opcodes = require('./src/opcodes')
+const opcodes = require('bscript-opcodes')
 const Token = require('./src/token')
 const BScript = require('./src/bscript')
 
