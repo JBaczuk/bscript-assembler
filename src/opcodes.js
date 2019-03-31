@@ -248,7 +248,7 @@ function wordIsDisabled (word) {
  * @module opcodes
  *
  * @example
- * const {opcodes} = require('bscript-parser')
+ * const {opcodes} = require('bscript-assembler')
  */
 module.exports = {
   opcodeForWord,

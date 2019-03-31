@@ -1,12 +1,12 @@
-# Node Bitcoin Script
-[![NPM](https://img.shields.io/npm/v/bscript-parser.svg)](https://www.npmjs.org/package/bscript-parser)
-[![Build Status](https://travis-ci.com/JBaczuk/bscript-parser.svg?branch=master)](https://travis-ci.com/JBaczuk/bscript-parser)
+# Bitcoin Script Assembler/Disassembler
+[![NPM](https://img.shields.io/npm/v/bscript-assembler.svg)](https://www.npmjs.org/package/bscript-assembler)
+[![Build Status](https://travis-ci.com/JBaczuk/bscript-assembler.svg?branch=master)](https://travis-ci.com/JBaczuk/bscript-assembler)
 
-Node Bitcoin script parser
+Bitcoin Script Assembler/Disassembler for node or browsers
 
 ## Installation
 
-    $ npm i bscript-parser --save
+    $ npm i bscript-assembler --save
 
 ## CLI Usage
 General help:
@@ -45,7 +45,7 @@ $ bscript assemble --literal-style normal 76a914306e2ea1eed91bf66dfe5d94f3957d4b
 You can parse raw hex string into an assembly string using:  
 
 ```javascript
-> const BScript = require('bscript-parser')
+> const BScript = require('bscript-assembler')
 undefined
 > BScript.rawToAsm('a914c664139327b98043febeab6434eba89bb196d1af87', 'hex')
 'OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL'

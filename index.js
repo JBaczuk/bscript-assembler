@@ -1,4 +1,4 @@
-const deprecate = require('depd')('bscript-parser')
+const deprecate = require('depd')('bscript-assembler')
 
 const opcodes = require('./src/opcodes')
 const Token = require('./src/token')
@@ -13,7 +13,7 @@ const BScript = require('./src/bscript')
  * @return {string} The raw bscript converted to an asm string
  *
  * @example
- * const {rawToAsm} = require('bscript-parser')
+ * const {rawToAsm} = require('bscript-assembler')
  * const asm = rawToAsm('a914c664139327b98043febeab6434eba89bb196d1af87', 'hex')
  * assert.equal(asm, 'OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL')
  */
@@ -40,7 +40,7 @@ BScript.rawToAsm = function (rawScript, optionsOrEncoding = {}) {
  * @return {string} The raw bscript converted to an address
  *
  * @example
- * const {rawToAddress} = require('bscript-parser')
+ * const {rawToAddress} = require('bscript-assembler')
  * const address = rawToAddress('a914c664139327b98043febeab6434eba89bb196d1af87', 'hex')
  * assert.equal(address, '3Kn1bxgQwwqfCQCLtfErFFdqQLydN5t8ez')
  */
@@ -67,7 +67,7 @@ BScript.rawToAddress = function (rawScript, optionsOrEncoding = {}) {
  * @return {string|Buffer} The asm string converted to raw bscript
  *
  * @example
- * const {asmToRaw} = require('bscript-parser')
+ * const {asmToRaw} = require('bscript-assembler')
  * const raw = asmToRaw('OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL', 'hex')
  * assert.equal(raw, 'a914c664139327b98043febeab6434eba89bb196d1af87')
  */
@@ -94,7 +94,7 @@ BScript.asmToRaw = function (asmScript, optionsOrEncoding = {}) {
  * @return {string} The asm string converted to an address
  *
  * @example
- * const {asmToAddress} = require('bscript-parser')
+ * const {asmToAddress} = require('bscript-assembler')
  * const address = asmToAddress('OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL')
  * assert.equal(address, '3Kn1bxgQwwqfCQCLtfErFFdqQLydN5t8ez')
  */
@@ -111,7 +111,7 @@ BScript.asmToAddress = function (asmScript, options = {}) {
  * @return {string|Buffer} The address converted to raw bscript
  *
  * @example
- * const {addressToRaw} = require('bscript-parser')
+ * const {addressToRaw} = require('bscript-assembler')
  * const raw = addressToRaw('3Kn1bxgQwwqfCQCLtfErFFdqQLydN5t8ez', 'hex')
  * assert.equal(raw, 'a914c664139327b98043febeab6434eba89bb196d1af87')
  */
@@ -138,7 +138,7 @@ BScript.addressToRaw = function (address, optionsOrEncoding = {}) {
  * @return {string} The address converted to an asm string
  *
  * @example
- * const {addressToAsm} = require('bscript-parser')
+ * const {addressToAsm} = require('bscript-assembler')
  * const asm = addressToAsm('3Kn1bxgQwwqfCQCLtfErFFdqQLydN5t8ez')
  * assert.equal(asm, 'OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL')
  */
@@ -155,7 +155,7 @@ BScript.addressToAsm = function (address, options = {}) {
  * @return {string} The reformatted asm script.
  *
  * @example
- * const {formatAsm} = require('bscript-parser')
+ * const {formatAsm} = require('bscript-assembler')
  * const formatted = formatAsm('HASH160  [c664139327b98043febeab6434eba89bb196d1af]\nOP_EQUAL')
  * assert.equal(asm, 'OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL')
  */

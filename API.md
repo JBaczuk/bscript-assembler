@@ -114,7 +114,7 @@ static methods to create a new BScript instance.
 ### Examples
 
 ```javascript
-const BScript = require('bscript-parser')
+const BScript = require('bscript-assembler')
 const {Token} = BScript
 const {opcodeForWord} = Bscript.opcodes
 
@@ -267,7 +267,7 @@ Convert raw bscript into a bscript asm string.
 #### Examples
 
 ```javascript
-const {rawToAsm} = require('bscript-parser')
+const {rawToAsm} = require('bscript-assembler')
 const asm = rawToAsm('a914c664139327b98043febeab6434eba89bb196d1af87', 'hex')
 assert.equal(asm, 'OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL')
 ```
@@ -286,7 +286,7 @@ Convert a bscript asm string into raw bscript.
 #### Examples
 
 ```javascript
-const {asmToRaw} = require('bscript-parser')
+const {asmToRaw} = require('bscript-assembler')
 const raw = asmToRaw('OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL', 'hex')
 assert.equal(raw, 'a914c664139327b98043febeab6434eba89bb196d1af87')
 ```
@@ -305,7 +305,7 @@ Reformat a bscript asm string.
 #### Examples
 
 ```javascript
-const {formatAsm} = require('bscript-parser')
+const {formatAsm} = require('bscript-assembler')
 const formatted = formatAsm('HASH160  [c664139327b98043febeab6434eba89bb196d1af]\nOP_EQUAL')
 assert.equal(asm, 'OP_HASH160 c664139327b98043febeab6434eba89bb196d1af OP_EQUAL')
 ```
@@ -440,7 +440,7 @@ const options = {
 ### Examples
 
 ```javascript
-const {opcodes} = require('bscript-parser')
+const {opcodes} = require('bscript-assembler')
 ```
 
 ### opcodeForWord
@@ -692,7 +692,7 @@ There are three types of tokens:
 ### Examples
 
 ```javascript
-const {Token} = require('bscript-parser')
+const {Token} = require('bscript-assembler')
 token = new Token(Token.LITERAL, Buffer.from('abcdef0123', 'hex'), 0, 10)
 ```
 
