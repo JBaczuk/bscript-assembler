@@ -1,6 +1,6 @@
 const {
-  opcodeIsValid,
-} = require('./opcodes')
+  opcodeIsValid
+} = require('bscript-opcodes')
 
 const {
   opcode,

@@ -1,7 +1,7 @@
 const {
   opcodeForWord,
   wordIsValid
-} = require('./opcodes')
+} = require('bscript-opcodes')
 
 const {
   opcode,

@@ -1,6 +1,6 @@
 const {
   wordForOpcode
-} = require('./opcodes')
+} = require('bscript-opcodes')
 
 /**
  * A Token represents a parsed part of a bscript.
