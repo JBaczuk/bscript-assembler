@@ -35,7 +35,7 @@ const ADDRESS_SCRIPT_TYPES = [
  *
  * @param {Array<Token>} tokens - The ordered list of parsed tokens for the script
  * @example
- * const BScript = require('bscript-parser')
+ * const BScript = require('bscript-assembler')
  * const {Token} = BScript
  * const {opcodeForWord} = Bscript.opcodes
  *

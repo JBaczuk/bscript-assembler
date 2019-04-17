@@ -1,6 +1,6 @@
 const {
   wordForOpcode
-} = require('./opcodes')
+} = require('bscript-opcodes')
 
 /**
  * A Token represents a parsed part of a bscript.
@@ -23,7 +23,7 @@ const {
  *    token ends. Note: if source of the script is a raw script that is string encoded,
  *    the endIndex is the index within the buffer, not the original encoded string.
  * @example
- * const {Token} = require('bscript-parser')
+ * const {Token} = require('bscript-assembler')
  * token = new Token(Token.LITERAL, Buffer.from('abcdef0123', 'hex'), 0, 10)
  */
 class Token {

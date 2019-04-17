@@ -1,4 +1,4 @@
-const opcodes = require('../src/opcodes')
+const opcodes = require('bscript-opcodes')
 const expect = require('chai').expect
 
 const {
