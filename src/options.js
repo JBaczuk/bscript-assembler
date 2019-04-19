@@ -4,6 +4,9 @@ const BECH32 = 'bc'
 
 const VALID_ENCODINGS = new Set([
   null,
+  'utf8',
+  'ascii',
+  'binary',
   'hex',
   'base64'
 ])
@@ -53,7 +56,7 @@ function Options (data = {}) {
 
 Options.validateEncoding = function validateEncoding (encoding) {
   if (!VALID_ENCODINGS.has(encoding)) {
-    throw new TypeError('Encoding must be one of null, "hex" or "base64"')
+    throw new TypeError('Encoding must be one of null, "utf8", "ascii", "binary", "hex" or "base64"')
   }
 
   return encoding
