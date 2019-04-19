@@ -94,6 +94,9 @@ class BScript {
         return script
       case 'hex':
       case 'base64':
+      case 'ascii':
+      case 'utf8':
+      case 'binary':
         return script.toString(outputEncoding)
     }
 

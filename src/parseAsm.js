@@ -78,13 +78,13 @@ function nextOp (chars, idx, options) {
     try {
       return parseTerm(chars, idx, options)
     } catch (e) {
-      if (HEX_CHARS.has(first)) {
+      if (DECIMAL_CHARS.has(first)) {
         return parseDataLiteral(chars, idx, END_TERM)
       }
 
       throw e
     }
-  } else if (HEX_CHARS.has(first)) {
+  } else if (DECIMAL_CHARS.has(first)) {
     return parseDataLiteral(chars, idx, END_TERM)
   }
 
@@ -92,7 +92,15 @@ function nextOp (chars, idx, options) {
 }
 
 function parseDataLiteral (chars, idx, terminator, start = idx) {
-  const hex = []
+  const decimal = []
+
+  function getMinBytes (number) {
+    let bitsPerByte = 8
+    if (number < Math.pow(2, bitsPerByte)) return 1
+    if (number < Math.pow(2, bitsPerByte * 2)) return 2
+    if (number < Math.pow(2, bitsPerByte * 3)) return 3
+    if (number < Math.pow(2, bitsPerByte * 4)) return 4
+  }
 
   let first = peek(chars, idx)
   while (first !== undefined && !terminator.has(first)) {
@@ -101,11 +109,11 @@ function parseDataLiteral (chars, idx, terminator, start = idx) {
       idx += 1
       first = peek(chars, idx)
       continue
-    } else if (!HEX_CHARS.has(first)) {
-      throw new Error(`Invalid hexadecimal character in literal starting at position ${idx}`)
+    } else if (!DECIMAL_CHARS.has(first)) {
+      throw new Error(`Invalid decimal character in literal starting at position ${idx}`)
     }
 
-    hex.push(first)
+    decimal.push(first)
     idx += 1
     first = peek(chars, idx)
   }
@@ -119,7 +127,10 @@ function parseDataLiteral (chars, idx, terminator, start = idx) {
     idx += 1
   }
 
-  const data = Buffer.from(hex.join(''), 'hex')
+  const decimalInt = parseInt(decimal.join(''))
+  const bytes = getMinBytes(decimalInt)
+  let data = Buffer.alloc(bytes)
+  data.writeUIntLE(decimalInt, 0, bytes)
 
   return [literal(data, start, idx), idx]
 }
